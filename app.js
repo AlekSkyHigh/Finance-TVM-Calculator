@@ -26,9 +26,9 @@
 // ---------------------------------------------------------------------------------------------------------------
 function calculateFutureValue(presentValue, payments, interestRate, years) {
 
-    // if (isNaN(presentValue) || isNaN(payments) || isNaN(interestRate) || isNaN(years)) {
-    //     throw new Error("Invalid input: all inputs must be numbers.");
-    // }
+    if (isNaN(presentValue) || isNaN(payments) || isNaN(interestRate) || isNaN(years)) {
+        throw new Error("Invalid input: all inputs must be numbers.");
+    }
 
     let futureValue = -1 * presentValue;
 
@@ -61,4 +61,4 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// This is a test 
+// This is a test V2
