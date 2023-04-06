@@ -12,63 +12,65 @@
     <script src="/app.js"></script>
 </head>
 
-<body>
+<body class="d-flex flex-column">
 
-    <header>
-        <p>Time Value of Money Calculator for bai Kiro</p>
+    <header class="fw-bold p-4">
+        <h2>Time Value of Money Calculator</h2>
     </header>
 
 
-    <form id="myForm">
+    <form id="myForm" class="col-12 col-md-6 px-5 mx-auto">
 
-        <div class="mode">
-            <label for="mode">Mode</label>
+        <div class="mode mb-2 fw-bold">
+            <label class="col-3 fs-mobile" for="mode">Mode:</label>
 
-            <label for="End">End</label>
-            <input type="radio" name="radio-choice-1" id="radio-choice-1" tabindex="1" value="choice-1">
+            <label class="col-2 fs-mobile">End <input type="radio" name="radio-choice-1" id="radio-choice-1" tabindex="1"
+                value="choice-1"></label>
 
-            <label for="Beginning">Beginning</label>
-            <input type="radio" name="radio-choice-2" id="radio-choice-2" tabindex="2" value="choice-2">
+            <label class="col-4 col-md-2 fs-mobile">Beginning <input type="radio" name="radio-choice-1" id="radio-choice-2" tabindex="2"
+                value="choice-2"></label>
         </div>
 
-        <div>
-            <label for="present-value">Present Value:</label>
-            <input type="number" name="present-value" id="present-value" value="" tabindex="3">
-            <button>PV</button>
+        <div class="input-group mb-2 d-flex align-items-center">
+            <label class="col-3 text-start fw-bold fs-mobile" for="present-value">Present Value:</label>
+            <input class="form-control p-1 rounded fs-mobile" type="number" name="present-value" id="present-value" value="" tabindex="3">
+            <button class="btn btn-light p-1 col-2 rounded fs-mobile">PV</button>
         </div>
-        <div>
-            <label for="payments">Payments:</label>
-            <input type="number" name="payments" id="payments" value="" tabindex="4">
-            <button>PMT</button>
+        <div class="input-group mb-2 d-flex align-items-center">
+            <label class="col-3 text-start fw-bold fs-mobile" for="payments">Payments:</label>
+            <input class="form-control p-1 rounded fs-mobile" type="number" name="payments" id="payments" value="" tabindex="4">
+            <button class="btn btn-light p-1 col-2 rounded fs-mobile">PMT</button>
         </div>
-        <div>
-            <label for="future-value">Future Value:</label>
-            <input type="number" name="future-value" id="future-value" value="" tabindex="5">
-            <button id="fvBtn">FV</button>
+        <div class="input-group mb-2 d-flex align-items-center">
+            <label class="col-3 text-start fw-bold fs-mobile" for="future-value">Future Value:</label>
+            <input class="form-control p-1 rounded fs-mobile" type="number" name="future-value" id="future-value" value="" tabindex="5">
+            <button class="btn btn-light p-1 col-2 rounded fs-mobile" id="fvBtn">FV</button>
         </div>
-        <div>
-            <label for="annual-rate">Annual Rate (%):</label>
-            <input type="number" name="annual-rate" id="annual-rate" value="" tabindex="6">
-            <button>Rate</button>
+        <div class="input-group mb-2 d-flex align-items-center">
+            <label class="col-3 text-start fw-bold fs-mobile" for="annual-rate">Annual Rate (%):</label>
+            <input class="form-control p-1 rounded fs-mobile" type="number" name="annual-rate" id="annual-rate" value="" tabindex="6">
+            <button class="btn btn-light p-1 col-2 rounded fs-mobile">Rate</button>
         </div>
-        <div>
-            <label for="periods">Periods:</label>
-            <input type="number" name="periods" id="periods" value="" tabindex="7">
-            <button>Periods</button>
+        <div class="input-group mb-2 d-flex align-items-center">
+            <label class="col-3 text-start fw-bold fs-mobile" for="periods">Periods:</label>
+            <input class="form-control p-1 rounded fs-mobile" type="number" name="periods" id="periods" value="" tabindex="7">
+            <button class="btn btn-light p-1 col-2 rounded fs-mobile">Periods</button>
         </div>
 
 
-        <div class="comp">
-            <label for="Compounding">Compounding:</label>
-            <select name="select-choice" id="select-choice">
+        <div class="input-group mb-4">
+            <label class="col-4 text-start fw-bold col-md-3 fs-mobile" for="Compounding">Compounding:</label>
+            <select class="col-5 col-md-3 rounded fs-mobile" name="select-choice" id="select-choice">
                 <option value="Annualy">Annualy</option>
                 <option value="Monthly">Monthly</option>
+                <option value="Semiannually">Semiannually</option>
+                <option value="Quarterly">Quarterly</option>
             </select>
         </div>
 
 
         <div>
-            <input type="submit" value="Reset">
+            <input class="btn btn-light p-1 col-2 rounded fs-mobile" type="submit" value="Reset">
         </div>
 
     </form>

@@ -2,35 +2,24 @@ header {
     text-align: center;
 }
 
-header p {
+header h2 {
     display: inline-block;
     font-family: Helvetica, sans-serif;
-    font-size: large;
+    /* font-size: large; */
     color: bisque;
-
 }
-
 
 body {
     background: rgb(53, 90, 126);
     margin: 0;
-    padding: 2rem 12rem;
     font-family: Helvetica, sans-serif;
 }
 
-
-form div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
 form div label {
-    flex-basis: 30%;
-    margin-right: 5px;
-    text-align: right;
-    width: 120px; /* set a fixed width for the labels */    
+    /* flex-basis: 30%; */
+    /* margin-right: 5px; */
+    /* text-align: right; */
+    /* width: 178px; set a fixed width for the labels     */
     font-family: Helvetica, sans-serif;
     color: bisque;
 
@@ -48,7 +37,6 @@ form div select {
 }
 
 form div button {
-    flex-basis: 15%;
     /* set the width of the buttons */
     padding: 5px;
     border-radius: 5px;
@@ -62,15 +50,13 @@ form div button {
     text-align: start;
 }
 
-#select-choice {
-    position: relative;
-    right: 311px;
-    /* change the value to move the element further left or right */
-    flex-basis: 20%;
-    /* reduce the width of the input fields */
-}
-
 #myForm>div:nth-child(8)>input[type=submit] {
     display: block;
     margin: 0 auto;
+}
+
+@media only screen and (max-width: 920px){
+    .fs-mobile{
+        font-size: 0.75rem;
+    }
 }

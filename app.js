@@ -1,43 +1,39 @@
-// function calculateFutureValue(presentValue, interestRate, years) {
-//     let futureValue = -1 * presentValue * Math.pow(1 + (interestRate / 100), years);
-//     return futureValue.toFixed(2);
-// }
+function calculateFutureValue(presentValue, payments, interestRate, periods) {
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     let fvBtn = document.getElementById('fvBtn');
+    const compundingChoice = document.getElementById('select-choice');
 
-//     const pvInputField = document.getElementById('present-value');
-//     const annualRateInputField = document.getElementById('annual-rate');
-//     const periodsInputField = document.getElementById('periods');
-//     const pmtsInputField = document.getElementById('payments');
+    if (compundingChoice.value === "Annualy") {
 
-//     fvBtn.addEventListener('click', (event) => {
-//         event.preventDefault();
-//         // let futureValue = calculateFutureValue(-1000, 5, 10);
-//         let futureValue = calculateFutureValue(pvInputField.value, annualRateInputField.value, periodsInputField.value);
-//         // console.log("The future value is $" + futureValue);
-//         futureValueInputField.value = futureValue
-//     });
+        let futureValue = -1 * presentValue;
+        for (let i = 1; i <= periods; i++) {
+            futureValue -= payments;
+            futureValue *= 1 + (interestRate / 100);
+        }
+        return futureValue.toFixed(2);
 
-//     const futureValueInputField = document.getElementById('future-value');
-// });
+    } else if (compundingChoice.value === "Monthly") {
 
+        const monthlyInterestRate = (interestRate / 12) / 100;
+        const futureValue = Math.abs(presentValue) * Math.pow(1 + monthlyInterestRate, periods) +
+            Math.abs(payments) * ((Math.pow(1 + monthlyInterestRate, periods) - 1) / monthlyInterestRate);
 
-// ---------------------------------------------------------------------------------------------------------------
-function calculateFutureValue(presentValue, payments, interestRate, years) {
+        return futureValue.toFixed(2);
 
-    if (isNaN(presentValue) || isNaN(payments) || isNaN(interestRate) || isNaN(years)) {
-        throw new Error("Invalid input: all inputs must be numbers.");
+    } else if (compundingChoice.value === "Semiannually") {
+
+        // const semiAnnualInterestRate = (interestRate / 2) / 100;
+        // const totalNumberOfPayments = periodInMonths / 6;
+        // const semiAnnualPayments = payments / 2;
+
+        // // Calculate the future value using the present value and the semi-annual payments
+        // const futureValue = Math.abs(presentValue) * Math.pow(1 + semiAnnualInterestRate, totalNumberOfPayments * 2) +
+        //     Math.abs(semiAnnualPayments) * ((Math.pow(1 + semiAnnualInterestRate, totalNumberOfPayments * 2) - 1) / semiAnnualInterestRate);
+
+        // // Return the future value as a negative number to represent the investment
+        // return -(futureValue.toFixed(2));
+
     }
 
-    let futureValue = -1 * presentValue;
-
-    for (let i = 1; i <= years; i++) {
-        futureValue -= payments;
-        futureValue *= 1 + (interestRate / 100);
-    }
-
-    return futureValue.toFixed(2);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -48,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const futureValueInputField = document.getElementById('future-value');
     const annualRateInputField = document.getElementById('annual-rate');
     const periodsInputField = document.getElementById('periods');
-    const compundingChoice = document.getElementById('select-choice'); //to do...
 
     fvBtn.addEventListener('click', (event) => {
         event.preventDefault();
@@ -58,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
         futureValueInputField.value = futureValue
     });
 
+
+
 });
-
-
-// This is a test V2
