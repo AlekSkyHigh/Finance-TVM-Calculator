@@ -1,5 +1,7 @@
 import { calculateFutureValue } from "./functionalities/futureValue.js"; 
+import { calculatePayments } from "./functionalities/payments.js";
 import { calculatePresentValue } from "./functionalities/presentValue.js"; 
+import { calculateRate } from "./functionalities/rate.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -22,5 +24,19 @@ document.addEventListener('DOMContentLoaded', function () {
         let presentValue = calculatePresentValue(pmtInput.value, fvInput.value, rateInput.value, periodsInput.value); 
         pvInput.value = presentValue;
     });
+
+    const pmtBtn = document.getElementById('pmtBtn');
+    pmtBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        let payments = calculatePayments(pvInput.value, fvInput.value, rateInput.value, periodsInput.value)
+        pmtInput.value = payments;
+    })
+
+    const rateBtn = document.getElementById('rateBtn');
+    rateBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        let rate = calculateRate(pvInput.value, pmtInput.value, fvInput.value, periodsInput.value);
+        rateInput.value = rate;
+    })
 
 });
