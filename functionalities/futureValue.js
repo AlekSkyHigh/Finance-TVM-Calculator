@@ -1,7 +1,6 @@
 export function calculateFutureValue(presentValue, payments, annualRate, periods) {
 
     const isEnd = document.querySelector('input[name="radio-choice"]:checked').value === 'End';
-
     const compundingChoice = document.getElementById('select-choice');
 
     if (compundingChoice.value == "Annualy") {
