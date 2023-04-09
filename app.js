@@ -1,5 +1,6 @@
 import { calculateFutureValue } from "./functionalities/futureValue.js"; 
 import { calculatePayments } from "./functionalities/payments.js";
+import { calculatePeriods } from "./functionalities/periods.js";
 import { calculatePresentValue } from "./functionalities/presentValue.js"; 
 import { calculateRate } from "./functionalities/rate.js";
 
@@ -37,6 +38,13 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         let rate = calculateRate(pvInput.value, pmtInput.value, fvInput.value, periodsInput.value);
         rateInput.value = rate;
+    })
+
+    const periodsBtn = document.getElementById('periodsBtn');
+    periodsBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        let periods = calculatePeriods(pvInput.value, pmtInput.value, fvInput.value, rateInput.value);
+        periodsInput.value = periods;
     })
 
 });
