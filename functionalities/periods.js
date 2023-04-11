@@ -1,18 +1,15 @@
-export function calculatePeriods(presentValue, payment, futureValue, rate) {
-    // Convert annual rate from percent to decimal
-    rate = rate / 100;
-  
-    // Calculate the number of periods required to achieve the future value
-    const periods = Math.log((futureValue - payment) / (presentValue - payment)) / Math.log(1 + rate);
-  
-    // Convert periods to years
-    const years = periods / 1;
-  
-    // Return the number of years required
+export function calculatePeriods(presentValue, annualInvestment, futureValue, interestRate) {
+
+    let currentAmount = Number(-presentValue);
+    let payment = Number(-annualInvestment);
+    let finalAmount = Number(futureValue);
+    let years = 0;
+    
+    while (currentAmount < finalAmount) {
+        currentAmount += payment;
+        currentAmount *= (1 + (interestRate / 100));
+        years++;
+    }
+
     return years;
-  }
-  
-
-
-
-// in progress..
+}
