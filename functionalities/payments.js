@@ -1,38 +1,74 @@
-export function calculatePayments(presentValue, futureValue, annualRate, periods) {
+export function calculatePayments(presentValue, futureValue, interestRate, periods) {
 
+    const isEnd = document.querySelector('input[name="radio-choice"]:checked').value === 'End';
     const compundingChoice = document.getElementById('select-choice');
 
     if (compundingChoice.value == "Annualy") {
 
-        annualRate /= 100;
-        const paymentPerPeriod = presentValue * (annualRate / (1 - Math.pow(1 + annualRate, -periods)));
-        const paymentWithFv = futureValue * annualRate / (Math.pow(1 + annualRate, periods) - 1);
-        const paymentWithPv = paymentPerPeriod + paymentWithFv;
-        return (-1 * paymentWithPv.toFixed(2))
+        interestRate /= 100;
+        presentValue = -presentValue;
+
+        if (isEnd) {
+            const futureValueWithInterest = futureValue * Math.pow(1 + interestRate, -periods);
+            const annuity = -(futureValueWithInterest - presentValue) * (interestRate / (1 - Math.pow(1 + interestRate, -periods)));
+            return annuity.toFixed(2);
+
+        } else {
+            const futureValueWithInterest = futureValue * Math.pow(1 + interestRate, -periods);
+            const annuity = -(futureValueWithInterest - presentValue) * (interestRate / (1 - Math.pow(1 + interestRate, -periods))) / (1 + interestRate);
+            return annuity.toFixed(2);
+        }
 
     } else if (compundingChoice.value == "Monthly") {
 
-        annualRate = (annualRate / 12) / 100;
-        const paymentPerPeriod = presentValue * (annualRate / (1 - Math.pow(1 + annualRate, -periods)));
-        const paymentWithFv = futureValue * annualRate / (Math.pow(1 + annualRate, periods) - 1);
-        const paymentWithPv = paymentPerPeriod + paymentWithFv;
-        return (-1 * paymentWithPv.toFixed(2))
+        interestRate = (interestRate / 12) / 100;
+        presentValue = -presentValue;
+
+        if (isEnd) {
+            const futureValueWithInterest = futureValue * Math.pow(1 + interestRate, -periods);
+            const annuity = -(futureValueWithInterest - presentValue) * (interestRate / (1 - Math.pow(1 + interestRate, -periods)));
+            return annuity.toFixed(2);
+
+        } else {
+            const futureValueWithInterest = futureValue * Math.pow(1 + interestRate, -periods);
+            const annuity = -(futureValueWithInterest - presentValue) * (interestRate / (1 - Math.pow(1 + interestRate, -periods))) / (1 + interestRate);
+            return annuity.toFixed(2);
+        }
+        
 
     } else if (compundingChoice.value == "Semiannually") {
 
-        annualRate = (annualRate / 2) / 100;
-        const paymentPerPeriod = presentValue * (annualRate / (1 - Math.pow(1 + annualRate, -periods)));
-        const paymentWithFv = futureValue * annualRate / (Math.pow(1 + annualRate, periods) - 1);
-        const paymentWithPv = paymentPerPeriod + paymentWithFv;
-        return (-1 * paymentWithPv.toFixed(2))
+        interestRate = (interestRate / 2) / 100;
+        presentValue = -presentValue;
+
+        if (isEnd) {
+            const futureValueWithInterest = futureValue * Math.pow(1 + interestRate, -periods);
+            const annuity = -(futureValueWithInterest - presentValue) * (interestRate / (1 - Math.pow(1 + interestRate, -periods)));
+            return annuity.toFixed(2);
+
+        } else {
+            const futureValueWithInterest = futureValue * Math.pow(1 + interestRate, -periods);
+            const annuity = -(futureValueWithInterest - presentValue) * (interestRate / (1 - Math.pow(1 + interestRate, -periods))) / (1 + interestRate);
+            return annuity.toFixed(2);
+        }
+        
 
     } else if (compundingChoice.value == "Quarterly") {
 
-        annualRate = (annualRate / 4) / 100;
-        const paymentPerPeriod = presentValue * (annualRate / (1 - Math.pow(1 + annualRate, -periods)));
-        const paymentWithFv = futureValue * annualRate / (Math.pow(1 + annualRate, periods) - 1);
-        const paymentWithPv = paymentPerPeriod + paymentWithFv;
-        return (-1 * paymentWithPv.toFixed(2))
+        interestRate = (interestRate / 4) / 100;
+        presentValue = -presentValue;
+
+        if (isEnd) {
+            const futureValueWithInterest = futureValue * Math.pow(1 + interestRate, -periods);
+            const annuity = -(futureValueWithInterest - presentValue) * (interestRate / (1 - Math.pow(1 + interestRate, -periods)));
+            return annuity.toFixed(2);
+
+        } else {
+            const futureValueWithInterest = futureValue * Math.pow(1 + interestRate, -periods);
+            const annuity = -(futureValueWithInterest - presentValue) * (interestRate / (1 - Math.pow(1 + interestRate, -periods))) / (1 + interestRate);
+            return annuity.toFixed(2);
+        }
+
     }
 
 }
