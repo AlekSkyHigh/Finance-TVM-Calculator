@@ -1,18 +1,18 @@
-export function calculateRate(presentValue, payments, futureValue, years) {
+export function calculateRate(presentValue, payments, futureValue, periods) {
 
     const isEnd = document.querySelector('input[name="radio-choice"]:checked').value === 'End';
     const compundingChoice = document.getElementById('select-choice');
 
     if (compundingChoice.value == "Annualy") {
 
-        if (isEnd) {
+        const n = periods; // number of years
+        const p = -presentValue; // present value (negative to represent investment)
+        const r = 0.01; // starting guess for annual interest rate
+        const f = futureValue; // future value
+        let guess = r;
+        let tolerance = 0.0001;
 
-            const n = years; // number of years
-            const p = -presentValue; // present value (negative to represent investment)
-            const r = 0.01; // starting guess for annual interest rate
-            const f = futureValue; // future value
-            let guess = r;
-            let tolerance = 0.0001;
+        if (isEnd) {
 
             function calculateFutureValue(rate) {
                 const compoundedValue = p * Math.pow((1 + rate), n); // compounded value of present value
@@ -41,13 +41,6 @@ export function calculateRate(presentValue, payments, futureValue, years) {
 
         } else {
 
-            const n = years; // number of years
-            const p = -presentValue; // present value (negative to represent investment)
-            const r = 0.01; // starting guess for annual interest rate
-            const f = futureValue; // future value
-            let guess = r;
-            let tolerance = 0.0001;
-
             function calculateFutureValue(rate) {
                 const compoundedValue = p * Math.pow((1 + rate), n); // compounded value of present value
                 const annuityValue = -payments * ((Math.pow((1 + rate), n) - 1) / rate) * (1 + rate); // annuity value of annual payment (negative to represent investment), with payment made at the beginning of each period
@@ -75,6 +68,24 @@ export function calculateRate(presentValue, payments, futureValue, years) {
 
         }
 
-    } 
+    } else if (compundingChoice.value == 'Monthly') {
+
+
+        if (isEnd) {
+
+
+            //todo
+
+        } else {
+
+            //todo
+
+
+        }
+
+
+
+
+    }
 
 }
