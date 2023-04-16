@@ -14,7 +14,7 @@ The TVM calculator supports multiple compounding periods such as annually, month
 The TVM calculator has a user-friendly interface that allows users to easily input values and see the results.
 
 ## How to Use
-* Input Values
+### Input Values
 There are five input fields that you will need to fill out to perform a calculation. They are:
 
 - Present Value Field - This field represents the initial investment or loan amount. Enter the known value of the present value or calculate it if you have the necessary information.
