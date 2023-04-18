@@ -17,9 +17,9 @@ The TVM calculator has a user-friendly interface that allows users to easily inp
 ### Input Values
 There are five input fields that you will need to fill out to perform a calculation. They are:
 
-- Present Value Field - This field represents the initial investment or loan amount. Enter the known value of the present value or calculate it if you have the necessary information.
+- Present Value Field - This field represents the initial investment or loan amount. Enter the known value of the present value as a negative number or calculate it if you have the necessary information.
 
-- Payment Field - This field represents the annuity payment or regular cash flow. Enter the known value of the payment or calculate it if you have the necessary information.
+- Payment Field - This field represents the annuity payment or regular cash flow. Enter the known value of the payment as a negative number or calculate it if you have the necessary information.
 
 - Future Value Field - This field represents the future value of an investment or loan at a specific point in time. Enter the known value of the future value or calculate it if you have the necessary information.
 
