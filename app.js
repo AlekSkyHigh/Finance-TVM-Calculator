@@ -1,7 +1,7 @@
-import { calculateFutureValue } from "./functionalities/futureValue.js"; 
+import { calculateFutureValue } from "./functionalities/futureValue.js";
 import { calculatePayments } from "./functionalities/payments.js";
 import { calculatePeriods } from "./functionalities/periods.js";
-import { calculatePresentValue } from "./functionalities/presentValue.js"; 
+import { calculatePresentValue } from "./functionalities/presentValue.js";
 import { calculateRate } from "./functionalities/rate.js";
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const pvBtn = document.getElementById('pvBtn');
     pvBtn.addEventListener('click', (event) => {
         event.preventDefault();
-        let presentValue = calculatePresentValue(pmtInput.value, fvInput.value, rateInput.value, periodsInput.value); 
+        let presentValue = calculatePresentValue(pmtInput.value, fvInput.value, rateInput.value, periodsInput.value);
         pvInput.value = presentValue;
     });
 
@@ -45,6 +45,24 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         let periods = calculatePeriods(pvInput.value, pmtInput.value, fvInput.value, rateInput.value);
         periodsInput.value = periods;
+    })
+
+    const instructionsBtn = document.getElementById('instBtn');
+    instructionsBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const myForm = document.getElementById('myForm');
+        myForm.style.display = 'none';
+
+        const instructions = document.getElementById('Instruction')
+        instructions.style.display = 'block';
+
+        document.getElementById('backBtn').addEventListener('click', (event) => {
+            event.preventDefault();
+
+            myForm.style.display = 'block';
+            instructions.style.display = 'none';
+        })
     })
 
 });

@@ -74,11 +74,40 @@
         </div>
 
 
-        <div class="d-flex">
-            <input class="btn btn-light p-1 col-2 rounded fs-mobile mx-auto" type="reset" value="Reset">
+        <div class="text-end">
+            <input class="btn btn-light p-1 col-3 col-md-2 rounded fs-mobile mx-auto" type="reset" value="Reset">
+            <button id="instBtn" class="btn btn-light p-1 col-3 col-md-2 rounded fs-mobile mx-auto">Instruction</button>
         </div>
 
     </form>
+
+    <div id="Instruction" style="display: none;" class="col-12 col-md-6 px-5 mx-auto flex-grow-1 text-white">
+        <h2>Input Fields</h2>
+        <p>There are five input fields that you will need to fill out to perform a calculation. They are:</p>
+        <ul>
+            <li>Present Value Field - This field represents the initial investment or loan amount. Enter the known value
+                of the present value as a negative number or calculate it if you have the necessary information.</li>
+            <li>Payment Field - This field represents the annuity payment or regular cash flow. Enter the known value of
+                the payment as a negative number or calculate it if you have the necessary information.</li>
+            <li>Future Value Field - This field represents the future value of an investment or loan at a specific point
+                in time. Enter the known value of the future value or calculate it if you have the necessary
+                information.</li>
+            <li>Annual Rate% Field - This field represents the annual interest rate for an investment or loan. Enter the
+                known value of the annual rate or calculate it if you have the necessary information.</li>
+            <li>Period Field - This field represents the number of periods or time intervals. Enter the known value of
+                the periods or calculate it if you have the necessary information.</li>
+        </ul>
+        <h2>Additional Features</h2>
+        <ul>
+            <li>Compounding Field - This field represents the frequency of the interest rate compounding and the
+                frequency of the annuity payments.</li>
+            <li>Mode Feature - Users can select the mode of payments to be either at the end of each period (End) or at
+                the beginning of each period (Beginning).</li>
+        </ul>
+
+        <button id="backBtn"
+            class="floar-right ml-auto btn btn-light p-1 col-3 col-md-2 rounded fs-mobile mx-auto">Back</button>
+    </div>
 
     <footer id="sticky-footer" class="d-flex py-4 bg-dark text-white-50 mt-5 fs-mobile">
         <div class="text-start col-md-6 px-3">
